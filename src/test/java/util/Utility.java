@@ -1,5 +1,4 @@
 package util;
-
 import base.BaseClass;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;

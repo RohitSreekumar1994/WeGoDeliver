@@ -3,3 +3,6 @@
 /workspace.xml
 /.idea
 /WeGoDeliver.iml
+*.html
+*.png
+target/

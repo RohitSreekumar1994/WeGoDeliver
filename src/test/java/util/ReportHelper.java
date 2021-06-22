@@ -1,5 +1,4 @@
 package util;
-
 import base.BaseClass;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.GherkinKeyword;
@@ -8,7 +7,6 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
-
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;

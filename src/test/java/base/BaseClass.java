@@ -63,7 +63,7 @@ public class BaseClass {
 
     private void initializeDriver()  {
 
-        String driverName = propertyFileOperations.getProperty("driverName");
+        String driverName = propertyFileOperations.getProperty("driver.name");
 
         if(driverName.equalsIgnoreCase("chromeDriver")){
             String driverPath = propertyFileOperations.getProperty("webdriver.chrome.driver");
@@ -87,6 +87,9 @@ public class BaseClass {
         utility = new Utility();
         scenarioContext = new ScenarioContext();
         extentReports = new ExtentReports();
+
+        scenarioContext.setContext("Home Page",propertyFileOperations.getProperty("homePage.URL"));
+
     }
 
 

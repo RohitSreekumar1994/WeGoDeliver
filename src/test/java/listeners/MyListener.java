@@ -1,5 +1,4 @@
 package listeners;
-
 import base.BaseClass;
 import org.testng.ISuiteListener;
 import org.testng.ITestContext;

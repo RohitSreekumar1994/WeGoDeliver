@@ -1,13 +1,17 @@
 package POM;
-
 import base.BaseClass;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class TourDetails extends BaseClass {
+/**
+ * This class contains all the Elements and Methods which can be used for
+ * various operations in the "Tour Details Page" of the application under test
+ * @see base.BaseClass
+ */
+public class TourDetailsPage extends BaseClass {
 
-    public TourDetails() {
+    public TourDetailsPage() {
 
         PageFactory.initElements(driver, this);
     }
@@ -27,5 +31,14 @@ public class TourDetails extends BaseClass {
 
     @FindBy(xpath = "//p[text()='Stops']/following-sibling::strong")
     private WebElement stops;
+
+    /**
+     * Method to check if the page is displayed
+     * @return true/false according to visible/not visible
+     */
+    public boolean isDisplayed()
+    {
+        return tourDetailsHeader.isDisplayed() && downloadCSVButton.isDisplayed();
+    }
 
 }
