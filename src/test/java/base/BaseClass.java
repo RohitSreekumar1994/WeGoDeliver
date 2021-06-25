@@ -4,6 +4,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
@@ -53,9 +54,11 @@ public class BaseClass {
      * @see listeners.MyListener#onTestStart(ITestResult)
      * @throws IOException
      */
-    public void initialize() throws IOException {
+    public void initialize(String testType) throws IOException {
 
-        initializeDriver();
+        if(!testType.contains("API")) {
+            initializeDriver();
+        }
         setFrameworkProperties();
 
     }
@@ -71,6 +74,12 @@ public class BaseClass {
             driver = new ChromeDriver();
 
         }
+        else if(driverName.equalsIgnoreCase("firefoxDriver")){
+
+            String driverPath = propertyFileOperations.getProperty("webdriver.gecko.driver");
+            System.setProperty("webdriver.gecko.driver",driverPath);
+            driver = new FirefoxDriver();
+        }
         driver.manage().window().maximize();
     }
 
@@ -81,24 +90,28 @@ public class BaseClass {
      */
     private void setFrameworkProperties() {
         implicitWaitTimeOutInSeconds = Integer.parseInt(propertyFileOperations.getProperty("selenium.implicitWait.timeOutInSeconds"));
-        driver.manage().timeouts().implicitlyWait(implicitWaitTimeOutInSeconds, TimeUnit.SECONDS);
-        int explicitWaitTimeOutInSeconds = Integer.parseInt(propertyFileOperations.getProperty("selenium.explicitWait.timeOutInSeconds"));
-        webDriverWait = new WebDriverWait(driver, explicitWaitTimeOutInSeconds);
+        if(driver!=null) {
+            int explicitWaitTimeOutInSeconds = Integer.parseInt(propertyFileOperations.getProperty("selenium.explicitWait.timeOutInSeconds"));
+            driver.manage().timeouts().implicitlyWait(implicitWaitTimeOutInSeconds, TimeUnit.SECONDS);
+            webDriverWait = new WebDriverWait(driver, explicitWaitTimeOutInSeconds);
+        }
         utility = new Utility();
         scenarioContext = new ScenarioContext();
         extentReports = new ExtentReports();
-
         scenarioContext.setContext("Home Page",propertyFileOperations.getProperty("homePage.URL"));
         scenarioContext.setContext("tourDataPath",System.getProperty("user.dir")+System.getProperty("file.separator")+propertyFileOperations.getProperty("tourDataPath"));
-
+        scenarioContext.setContext("apiEndPointURL",propertyFileOperations.getProperty("apiEndPointURL"));
+        scenarioContext.setContext("apiKey",propertyFileOperations.getProperty("apiKey"));
 
     }
 
-
-
+    /**
+     * Method to quit the session
+     */
     public void terminate() {
 
-        driver.quit();
+        if(driver!=null)
+            driver.quit();
     }
 
     /**

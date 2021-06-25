@@ -2,7 +2,7 @@
 @CreateOrderManual
 Feature: To test if the user is able to create orders
 
-  Scenario: Create Order Test
+  Scenario: Create Order Manual Test
 
     Given the user is navigated to the webpage
     When user enters the depot name as "Pankstrasse, 13357 Berlin, Germany"

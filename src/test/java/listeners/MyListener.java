@@ -4,9 +4,7 @@ import org.testng.ISuiteListener;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
 import java.io.IOException;
-
 import static base.BaseClass.extentReports;
 
 public class MyListener implements ITestListener, ISuiteListener {
@@ -14,14 +12,15 @@ public class MyListener implements ITestListener, ISuiteListener {
 
     /**
      * onTestStart calls the BaseClass initialize method
-     * {@link BaseClass#initialize()}
+     * {@link BaseClass#initialize(String)}
      * @param result
      */
     public void onTestStart(ITestResult result) {
 
+
         baseClass = new BaseClass();
         try {
-            baseClass.initialize();
+            baseClass.initialize(result.getTestClass().getXmlTest().getName());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -100,8 +99,8 @@ public class MyListener implements ITestListener, ISuiteListener {
      * @param context The test context
      */
     public void onFinish(ITestContext context) {
-        // not implemented
-//        baseClass.terminate();
+
+        baseClass.terminate();
     }
 
 }

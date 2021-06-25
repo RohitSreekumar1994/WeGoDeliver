@@ -1,5 +1,4 @@
 package listeners;
-
 import base.BaseClass;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.gherkin.model.Feature;
@@ -50,7 +49,10 @@ public class Hooks extends BaseClass {
     public void tearDown()
     {
         extentReports.flush();
-        driver.quit();
+       if(driver!=null) {
+           driver.quit();
+           driver = null;
+       }
     }
 
 

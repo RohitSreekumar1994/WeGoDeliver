@@ -1,12 +1,9 @@
 package steps;
-
 import POM.AddOrdersPage;
 import POM.FleetDepotPage;
 import POM.TourDetailsPage;
 import base.BaseClass;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 
 public class CommonSteps extends BaseClass {
 
