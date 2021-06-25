@@ -23,6 +23,9 @@ public class AddOrdersPage extends BaseClass {
     @FindBy(id = "button-orders-mode-Manual")
     private WebElement manualInputButton;
 
+    @FindBy(id = "button-orders-mode-Import")
+    private WebElement importInputButton;
+
     @FindBy(id = "input-edit-order-name")
     private WebElement nameField;
 
@@ -40,6 +43,17 @@ public class AddOrdersPage extends BaseClass {
 
     @FindBy(id = "button-orders-next")
     private WebElement planTourButton;
+
+    @FindBy(id = "input-file-upload")
+    private WebElement uploadFile;
+
+    @FindBy(xpath = "//strong[text()='Save']")
+    private WebElement fileUploadSaveButton;
+
+    @FindBy(xpath = "//strong[text()='Confirm']")
+    private WebElement fileUploadConfirmButton;
+
+
 
     /**
      * Method to check if the page is displayed
@@ -61,6 +75,9 @@ public class AddOrdersPage extends BaseClass {
         if (orderMethod.equalsIgnoreCase("Manual")) {
             manualInputButton.click();
        }
+        else if(orderMethod.equalsIgnoreCase("Import")) {
+            importInputButton.click();
+        }
 
     }
 
@@ -95,6 +112,26 @@ public class AddOrdersPage extends BaseClass {
     public void planTour()
     {
         planTourButton.click();
+    }
+
+
+    /**
+     * Method to upload CSV file
+     * @param file
+     */
+    public void uploadFile(String file)
+    {
+        uploadFile.sendKeys(file);
+        utility.waitFor(1);
+        fileUploadSaveButton.click();
+        if(utility.checkVisibility(fileUploadConfirmButton,5)){
+            reportHelper.updateTestLog("Upload File", "File uploading in progress","pass", true);
+            fileUploadConfirmButton.click();
+
+        }
+        else{
+            reportHelper.updateTestLog("Upload File", "Unable to upload file","fail", true);
+        }
     }
 
 }

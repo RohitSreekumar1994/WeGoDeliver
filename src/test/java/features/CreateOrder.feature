@@ -1,4 +1,5 @@
 @CreateOrder
+@CreateOrderManual
 Feature: To test if the user is able to create orders
 
   Scenario: Create Order Test

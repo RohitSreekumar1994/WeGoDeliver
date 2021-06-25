@@ -89,6 +89,8 @@ public class BaseClass {
         extentReports = new ExtentReports();
 
         scenarioContext.setContext("Home Page",propertyFileOperations.getProperty("homePage.URL"));
+        scenarioContext.setContext("tourDataPath",System.getProperty("user.dir")+System.getProperty("file.separator")+propertyFileOperations.getProperty("tourDataPath"));
+
 
     }
 
@@ -99,6 +101,10 @@ public class BaseClass {
         driver.quit();
     }
 
+    /**
+     * Method to get the implicit wait timeout seconds
+     * @return - int value which corresponds to the timeout in seconds
+     */
     public int getImplicitWaitTimeOutInSeconds() {
         return implicitWaitTimeOutInSeconds;
     }

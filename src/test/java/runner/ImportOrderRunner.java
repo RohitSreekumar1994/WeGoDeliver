@@ -1,13 +1,14 @@
 package runner;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
+
 /**
- * Runner class for the Scenario : Create Order Test
+ * Runner class for the Scenario : Create Order - Import CSV
  *
  */
 @CucumberOptions(features = {"src/test/java/features"} , plugin = {"json:target/cucumber.json", "pretty"},
-        glue = {"steps","listeners"}, tags = "@CreateOrderManual")
+        glue = {"steps","listeners"}, tags = "@CreateOrderImport")
 
-public class CreateOrderRunner extends AbstractTestNGCucumberTests {
+public class ImportOrderRunner extends AbstractTestNGCucumberTests {
 
 }

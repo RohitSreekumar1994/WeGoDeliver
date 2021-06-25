@@ -62,5 +62,11 @@ public class AddOrdersSteps extends BaseClass {
 
     }
 
-
+    @Then("user uploads the file {string}")
+    public void userUploadsTheFile(String fileName) {
+        addOrdersPage = new AddOrdersPage();
+        String filePath = scenarioContext.getContext("tourDataPath");
+        filePath = filePath + System.getProperty("file.separator")+fileName;
+        addOrdersPage.uploadFile(filePath);
+    }
 }

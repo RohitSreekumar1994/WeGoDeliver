@@ -1,0 +1,4 @@
+tour,stop,id,name,address,phone,email,notes,demand,eta,latitude,longitude,shareLink
+"1","1",,"Thomas","Alexanderstraße, 10178 Berlin, Germany",,,,"1","1:14 PM","52.52012","13.41596","https://share.here.com/r/mylocation/52.52012,13.41596?m=d&lang=en"
+"1","2",,"Robert","U-Bahn-Naturkundemuseum",,,,"1","1:24 PM","52.53122","13.38257","https://share.here.com/r/mylocation/52.53122,13.38257?m=d&lang=en"
+"1","3",,"Daniel","Turmstraße, 10551 Berlin, Germany",,,,"1","1:33 PM","52.52638","13.34203","https://share.here.com/r/mylocation/52.52638,13.34203?m=d&lang=en"

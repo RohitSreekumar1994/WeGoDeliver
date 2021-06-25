@@ -6,9 +6,9 @@
         <listener class-name="listeners.MyListener" />
     </listeners>
 
-    <test name="Create Order Test">
+    <test name="Import Order Test">
         <classes>
-            <class name="runner.CreateOrderRunner"/>
+            <class name="runner.ImportOrderRunner"/>
         </classes>
     </test>
 
