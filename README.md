@@ -1,10 +1,10 @@
-# Test Automation Suite for WeGoDeliver Application
+# Demo Test Automation Suite for WeGoDeliver Application
 
-The Test Automation suite for Testing the app __WeGoDeliver Web Application__ is developed using the industry-best technologies such as __Selenium__, __Java__, __Cucumber__ and __TestNG__.
+The Test Automation suite for Testing the __WeGoDeliver Web Application__ is developed using the industry-best technologies such as __Selenium__, __Java__, __Cucumber__ and __TestNG__.
 
 This Suite consists of __3 Test Cases__ which can be used to Test the application
 
-The web related Test Cases can be executed either in  **Chrome** or a **Firefox** browsers
+The web related Test Cases can be executed either in  **Chrome** or  **Firefox** web browser
 
 ##### Technology Used:
 * [Java](https://www.java.com/en/)
@@ -24,7 +24,7 @@ The web related Test Cases can be executed either in  **Chrome** or a **Firefox*
 
 ## Pre-requisites for Test Execution
 1. Java 1.8 or greater
-2. Chrome (or Firefox) browser
+2. Chrome (or Firefox) web browser
 3. Chrome Driver ([https://chromedriver.chromium.org/downloads](https://chromedriver.chromium.org/downloads))
 4. (Optional) Gekho Driver(for firefox) ([https://github.com/mozilla/geckodriver/releases](https://github.com/mozilla/geckodriver/releases))   
 4. Intellij or Eclipse IDE (Optional)
@@ -46,7 +46,7 @@ The web related Test Cases can be executed either in  **Chrome** or a **Firefox*
 1. Clone the repository
 2. Configure the **env.properties** file
     1. Specify the ```` driver.name ````
-    2. Specify the driver path```webdriver.chrome.driver``` (or ```webdriver.gecko.driver``` if the browser if firefox) 
+    2. Specify the driver path```webdriver.chrome.driver``` (or ```webdriver.gecko.driver``` if the browser is firefox) 
     3. Enter the ```apiKey``` which is required for executing the Geocode Test Case
 
 
