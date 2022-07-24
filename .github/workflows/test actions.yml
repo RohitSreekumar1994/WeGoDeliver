@@ -18,18 +18,44 @@
           
           
           
-name: Create a Check
+# name: Create a Check
 
-on:
-  pull_request:
-    types: ['*']
+# on:
+#   pull_request:
+#     types: ['*']
+
+# jobs:
+#   create-check:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - run: 
+#           |
+#             curl --location --request POST 'https://api.github.com/repos/RohitSreekumar1994/WeGoDeliver/check-runs' \
+#             --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+#             --header 'Content-Type: application/json' \
+#             --data-raw '{
+#               "name": "Test_Check",
+#               "head_sha": "${{ github.sha }}",
+#               "status": "in_progress",
+#               "external_id": "42",
+#               "output": {
+#                   "title": "Mighty Readme report",
+#                   "summary": "",
+#                   "text": ""
+#               }
+#             }'
+            
+name: Create issue on commit
+
+on: [ push ]
 
 jobs:
-  create-check:
-    runs-on: ubuntu-latest
+  create_issue:
+    runs-on: ubuntu-latest 
     steps:
-    - run: 
-          |
+      - name: Create checks
+        run: |
+        
             curl --location --request POST 'https://api.github.com/repos/RohitSreekumar1994/WeGoDeliver/check-runs' \
             --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
             --header 'Content-Type: application/json' \
