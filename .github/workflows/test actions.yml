@@ -31,11 +31,11 @@ jobs:
     - run: 
           |
             curl --location --request POST 'https://api.github.com/repos/RohitSreekumar1994/WeGoDeliver/check-runs' \
-            --header "Authorization: Bearer ${{secrets.GITHUB_TOKEN}}" \
+            --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
             --header 'Content-Type: application/json' \
             --data-raw '{
               "name": "Test_Check",
-              "head_sha": "${{github.sha}}",
+              "head_sha": "${{ github.sha }}",
               "status": "in_progress",
               "external_id": "42",
               "output": {
