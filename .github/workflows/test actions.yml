@@ -50,7 +50,7 @@ name: Create issue on commit
 on: [ push ]
 
 jobs:
-  create_issue:
+  regression_test:
     runs-on: ubuntu-latest 
     steps:
       - name: Create checks
