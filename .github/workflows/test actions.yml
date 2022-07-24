@@ -28,7 +28,8 @@ jobs:
   create-check:
     runs-on: ubuntu-latest
     steps:
-    - |
+    - run: 
+          |
             curl --location --request POST 'https://api.github.com/repos/RohitSreekumar1994/WeGoDeliver/check-runs' \
             --header "Authorization: Bearer ${{secrets.GITHUB_TOKEN}}" \
             --header 'Content-Type: application/json' \
