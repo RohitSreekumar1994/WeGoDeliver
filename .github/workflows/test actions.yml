@@ -1,16 +1,46 @@
-name: Test Actions
+# name: Test Actions
+
+# on:
+#   issue_comment:
+#     types:
+#       - created
+
+# jobs:
+#   like-pizza:
+#     runs-on: ubuntu-latest
+#     if: ${{ github.event.comment.body == 'I like pizza'}}
+#     steps:
+#       - name: Like pizza
+#       - run: |
+#           curl --location --request POST 'https://drone.inhouse.dh-darkstores-live.net/api/repos/deliveryhero/nv_automations/builds?branch=Trigger_Drone_Test' \
+#           --header 'Authorization: Bearer ${{ secrets.REGRESSION_DRONE_TOKEN }}'
+          
+          
+          
+          
+name: Create a Check
 
 on:
-  issue_comment:
-    types:
-      - created
+  pull_request:
+    types: ['*']
 
 jobs:
-  like-pizza:
+  create-check:
     runs-on: ubuntu-latest
-    if: ${{ github.event.comment.body == 'I like pizza'}}
     steps:
-      - name: Like pizza
-      - run: |
-          curl --location --request POST 'https://drone.inhouse.dh-darkstores-live.net/api/repos/deliveryhero/nv_automations/builds?branch=Trigger_Drone_Test' \
-          --header 'Authorization: Bearer ${{ secrets.REGRESSION_DRONE_TOKEN }}'
+    - |
+            curl --location --request POST 'https://api.github.com/repos/RohitSreekumar1994/WeGoDeliver/check-runs' \
+            --header "Authorization: Bearer ${{secrets.GITHUB_TOKEN}}" \
+            --header 'Content-Type: application/json' \
+            --data-raw '{
+              "name": "Test_Check",
+              "head_sha": "${{github.sha}}",
+              "status": "in_progress",
+              "external_id": "42",
+              "output": {
+                  "title": "Mighty Readme report",
+                  "summary": "",
+                  "text": ""
+              }
+            }'
+
